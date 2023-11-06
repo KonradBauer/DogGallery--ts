@@ -26,15 +26,11 @@ const GetData: React.FC = () => {
   const breedsNames = Object.keys(data);
 
   return (
-    <div>
+    <ul>
       {breedsNames.map((breedName) => (
-        <div key={breedName}>
-          <ul>
-            <li>{breedName}</li>
-          </ul>
-        </div>
+        <li key={breedName}>{breedName}</li>
       ))}
-    </div>
+    </ul>
   );
 };
 
