@@ -23,8 +23,7 @@ interface Breed {
 const GetData: React.FC = () => {
   const { isLoading, error, data } = useQuery<Breed[]>({
     queryKey: ["breeds"],
-    queryFn: async () => {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+    queryFn: () => {
       return fetchData();
     },
   });
