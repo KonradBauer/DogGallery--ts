@@ -2,7 +2,7 @@
   "name": "doggallery-ts",
   "version": "0.1.0",
   "private": true,
-  "homepage": "",
+  "homepage": "https://konradbauer.github.io/DogGallery-ts/",
   "dependencies": {
     "@tanstack/react-query": "^5.4.3",
     "@tanstack/react-query-devtools": "^5.4.3",
