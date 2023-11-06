@@ -29,7 +29,7 @@ const GetData: React.FC = () => {
   }
 
   if (data === undefined) {
-    return null; // Zwróć null lub inny odpowiedni komponent w przypadku braku danych
+    return null;
   }
 
   return (

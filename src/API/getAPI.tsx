@@ -6,7 +6,7 @@ export const fetchData = () => {
   };
 
   return axios
-    .get("https://api.thecatapi.com/v1/images/search?limit=10", { headers })
+    .get("https://api.thedogapi.com/v1/images/search?limit=12", { headers })
     .then((response) => response.data)
     .catch((error) => {
       throw new Error("Nie udało się pobrać danych.");
