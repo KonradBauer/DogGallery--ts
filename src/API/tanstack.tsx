@@ -2,8 +2,13 @@ import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { fetchData } from "./getAPI";
 
+interface Breed {
+  id: string;
+  url: string;
+}
+
 const GetData: React.FC = () => {
-  const { isLoading, error, data } = useQuery({
+  const { isLoading, error, data } = useQuery<Breed[]>({
     queryKey: ["breeds"],
     queryFn: async () => {
       await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -23,12 +28,16 @@ const GetData: React.FC = () => {
     return <div>Błąd: {error.message}</div>;
   }
 
-  const breedsNames = Object.keys(data);
+  if (data === undefined) {
+    return null; // Zwróć null lub inny odpowiedni komponent w przypadku braku danych
+  }
 
   return (
     <ul>
-      {breedsNames.map((breedName) => (
-        <li key={breedName}>{breedName}</li>
+      {data.map((breed) => (
+        <li key={breed.id}>
+          <img src={breed.url} alt={breed.id} width="200" height="150" />
+        </li>
       ))}
     </ul>
   );
