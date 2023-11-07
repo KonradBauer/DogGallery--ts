@@ -5,7 +5,7 @@ export const Footer = () => {
         <p>
           Copyright © 2023 - All right reserved by{" "}
           <a href="https://github.com/KonradBauer">
-            <span className="font-semibold">Konrad Bauer</span>
+            <span className="font-semibold link-hover">Konrad Bauer</span>
           </a>
         </p>
       </aside>
