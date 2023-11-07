@@ -7,7 +7,18 @@ const App: React.FC = () => {
   return (
     <>
       <Navbar />
-      <div className="py-3 px-3 flex justify-center bg-neutral text-indigo-800 font-open-sans font-semibold border-spacing-0 ">
+      <div
+        className="
+      py-3 
+      px-3 
+      flex 
+      justify-center 
+      bg-neutral 
+      text-indigo-800 
+      font-open-sans 
+      font-semibold 
+      border-spacing-0 "
+      >
         <GetData />
       </div>
       <Footer />
