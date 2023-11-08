@@ -2,7 +2,7 @@ import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { fetchData } from "./getAPI";
 
-interface Breed {
+interface Photos {
   id: string;
   url: string;
   name: string;
@@ -20,9 +20,9 @@ interface Breed {
   life_span: string;
 }
 
-export const GetData: React.FC = () => {
-  const { isLoading, error, data } = useQuery<Breed[]>({
-    queryKey: ["breeds"],
+export const GetRandomPhotos: React.FC = () => {
+  const { isLoading, error, data } = useQuery<Photos[]>({
+    queryKey: ["photos"],
     queryFn: () => {
       return fetchData();
     },
