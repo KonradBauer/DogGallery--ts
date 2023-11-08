@@ -54,13 +54,17 @@ export const GetBreeds: React.FC = () => {
   return (
     <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {data.map((breed) => (
-        <li key={breed.reference_image_id} className="bg-white rounded-lg shadow-md p-4">
+        <li
+          key={breed.reference_image_id}
+          className="bg-white rounded-lg shadow-md p-4 text-neutral"
+        >
+          <h3 className="text-xl font-bold mb-2 flex justify-center">{breed.name}</h3>
           <img
             src={breed.image.url}
             alt={breed.image.id}
             className="w-full h-40 object-contain mb-4 rounded-md"
           />
-          <h3 className="text-xl font-semibold mb-2">{breed.name}</h3>
+
           <div className="text-center">
             {breed.breed_group && (
               <p className="mb-2">
