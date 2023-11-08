@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
-import { BreedsData } from "./getAPI";
+import { BreedsData } from "./endpoints";
 
 interface Breed {
   id: string;

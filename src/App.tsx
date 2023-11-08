@@ -2,8 +2,9 @@ import React from "react";
 
 import { Navbar } from "./components/Navbar/Navbar";
 import { Footer } from "./components/Footer/Footer";
-import { GetRandomPhotos } from "./API/getRandomPhotos";
+//import { GetRandomPhotos } from "./API/getRandomPhotos";
 import { GetBreeds } from "./API/getBreeds";
+import { Pagination } from "./components/Pagination/Pagination";
 
 const App: React.FC = () => {
   return (
@@ -23,6 +24,7 @@ const App: React.FC = () => {
       >
         <GetBreeds />
       </div>
+      <Pagination />
       <Footer />
     </>
   );

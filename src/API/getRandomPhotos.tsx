@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
-import { fetchData } from "./getAPI";
+import { fetchData } from "./endpoints";
 
 interface Photos {
   id: string;
