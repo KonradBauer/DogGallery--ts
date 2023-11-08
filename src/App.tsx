@@ -1,7 +1,9 @@
 import React from "react";
-import { GetData } from "./API/tanstack";
+
 import { Navbar } from "./components/Navbar/Navbar";
 import { Footer } from "./components/Footer/Footer";
+import { GetRandomPhotos } from "./API/getRandomPhotos";
+import { GetBreeds } from "./API/getBreeds";
 
 const App: React.FC = () => {
   return (
@@ -19,7 +21,7 @@ const App: React.FC = () => {
       font-semibold 
       border-spacing-0 "
       >
-        <GetData />
+        <GetBreeds />
       </div>
       <Footer />
     </>
