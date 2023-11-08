@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/DogGallery-ts/static/css/main.dce1e1d3.css",
-    "main.js": "/DogGallery-ts/static/js/main.4cd08106.js",
+    "main.css": "/DogGallery-ts/static/css/main.c4a22330.css",
+    "main.js": "/DogGallery-ts/static/js/main.033e6196.js",
     "static/js/787.56250a58.chunk.js": "/DogGallery-ts/static/js/787.56250a58.chunk.js",
     "static/media/logo.png": "/DogGallery-ts/static/media/logo.9be2582dd21624baa046.png",
     "index.html": "/DogGallery-ts/index.html",
-    "main.dce1e1d3.css.map": "/DogGallery-ts/static/css/main.dce1e1d3.css.map",
-    "main.4cd08106.js.map": "/DogGallery-ts/static/js/main.4cd08106.js.map",
+    "main.c4a22330.css.map": "/DogGallery-ts/static/css/main.c4a22330.css.map",
+    "main.033e6196.js.map": "/DogGallery-ts/static/js/main.033e6196.js.map",
     "787.56250a58.chunk.js.map": "/DogGallery-ts/static/js/787.56250a58.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.dce1e1d3.css",
-    "static/js/main.4cd08106.js"
+    "static/css/main.c4a22330.css",
+    "static/js/main.033e6196.js"
   ]
 }
