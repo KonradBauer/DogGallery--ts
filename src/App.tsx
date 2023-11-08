@@ -1,5 +1,5 @@
 import React from "react";
-import GetData from "./API/tanstack";
+import { GetData } from "./API/tanstack";
 import { Navbar } from "./components/Navbar/Navbar";
 import { Footer } from "./components/Footer/Footer";
 

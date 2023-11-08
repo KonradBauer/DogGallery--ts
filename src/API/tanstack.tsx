@@ -20,7 +20,7 @@ interface Breed {
   life_span: string;
 }
 
-const GetData: React.FC = () => {
+export const GetData: React.FC = () => {
   const { isLoading, error, data } = useQuery<Breed[]>({
     queryKey: ["breeds"],
     queryFn: () => {
@@ -91,5 +91,3 @@ const GetData: React.FC = () => {
     </ul>
   );
 };
-
-export default GetData;
