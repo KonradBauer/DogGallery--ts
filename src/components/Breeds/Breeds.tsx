@@ -1,3 +1,3 @@
 export const Breeds = () => {
-  return <div></div>;
+  return <div>Breeds</div>;
 };
