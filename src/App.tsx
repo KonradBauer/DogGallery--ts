@@ -5,25 +5,15 @@ import { Footer } from "./components/Footer/Footer";
 //import { GetRandomPhotos } from "./API/getRandomPhotos";
 import { GetBreeds } from "./API/getBreeds";
 import { Pagination } from "./components/Pagination/Pagination";
+import { MainContainer } from "./components/MainContainer/MainContainer";
 
 const App: React.FC = () => {
   return (
     <>
       <Navbar />
-      <div
-        className="
-      py-3 
-      px-3 
-      flex 
-      justify-center 
-      bg-neutral 
-      text-indigo-800 
-      font-open-sans 
-      font-semibold 
-      border-spacing-0 "
-      >
+      <MainContainer>
         <GetBreeds />
-      </div>
+      </MainContainer>
       <Pagination />
       <Footer />
     </>
