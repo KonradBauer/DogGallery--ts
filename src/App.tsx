@@ -1,11 +1,20 @@
+import React from "react";
+import { Route, Switch, HashRouter } from "react-router-dom";
 import { Homepage } from "./components/Homepage/homepage";
 import { DogDetails } from "./components/DogDetails/DogDetails";
 
 const App: React.FC = () => {
   return (
-    <div>
-      <Homepage />
-    </div>
+    <HashRouter>
+      <Switch>
+        <Route path="/dog-details">
+          <DogDetails />
+        </Route>
+        <Route path="/">
+          <Homepage />
+        </Route>
+      </Switch>
+    </HashRouter>
   );
 };
 

@@ -1,6 +1,7 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { BreedsData } from "./endpoints";
+import { Link } from "react-router-dom";
 
 interface Breed {
   id: string;
@@ -41,8 +42,8 @@ export const GetBreeds: React.FC = () => {
   return (
     <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {data.map((breed) => (
-        <a
-          href="/dogDetails"
+        <Link
+          to="/dog-details"
           key={breed.id}
           className="bg-white rounded-lg shadow-md p-4 text-neutral"
         >
@@ -52,7 +53,7 @@ export const GetBreeds: React.FC = () => {
             alt={breed.image.id}
             className="w-full h-40 object-contain mb-4 rounded-md"
           />
-        </a>
+        </Link>
       ))}
     </ul>
   );
