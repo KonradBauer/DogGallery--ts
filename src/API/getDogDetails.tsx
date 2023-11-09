@@ -1,37 +1,31 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
-import { BreedsData } from "./endpoints";
+import { DogData } from "./endpoints";
 
 interface Breed {
-  id: string;
-  url: string;
-  name: string;
-  breed_group: string;
-  bred_for: string;
-  height: {
-    imperial: string;
-    metric: string;
-  };
   weight: {
     imperial: string;
     metric: string;
   };
-  temperament: string;
-  life_span: string;
-  reference_image_id: string;
-  image: {
-    id: string;
-    width: number;
-    height: number;
-    url: string;
+  height: {
+    imperial: string;
+    metric: string;
   };
+  id: number;
+  name: string;
+  bred_for: string;
+  breed_group: string;
+  life_span: string;
+  temperament: string;
+  origin: string;
+  reference_image_id: string;
 }
 
-export const GetCardContent: React.FC = () => {
-  const { isLoading, error, data } = useQuery<Breed[]>({
-    queryKey: ["breeds"],
+export const GetDogDetails: React.FC = () => {
+  const { isLoading, error, data } = useQuery<Breed>({
+    queryKey: ["dog"],
     queryFn: () => {
-      return BreedsData();
+      return DogData();
     },
   });
 
@@ -47,60 +41,68 @@ export const GetCardContent: React.FC = () => {
     return <div>Błąd: {error.message}</div>;
   }
 
-  if (data === undefined) {
+  if (!data) {
     return null;
   }
 
-  return (
-    <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {data.map((breed) => (
-        <li
-          key={breed.reference_image_id}
-          className="bg-white rounded-lg shadow-md p-4 text-neutral"
-        >
-          <h3 className="text-xl font-bold mb-2 flex justify-center">{breed.name}</h3>
-          <img
-            src={breed.image.url}
-            alt={breed.image.id}
-            className="w-full h-40 object-contain mb-4 rounded-md"
-          />
+  const {
+    weight,
+    height,
+    name,
+    bred_for,
+    breed_group,
+    life_span,
+    temperament,
+    origin,
+    reference_image_id,
+  } = data;
 
-          {
-            <div className="text-center">
-              {breed.breed_group && (
-                <p className="mb-2">
-                  <strong>Breed Group:</strong> {breed.breed_group}
-                </p>
-              )}
-              {breed.bred_for && (
-                <p className="mb-2">
-                  <strong>Bred For:</strong> {breed.bred_for}
-                </p>
-              )}
-              {breed.height && breed.height.imperial && breed.height.metric && (
-                <p className="mb-2">
-                  <strong>Height:</strong> {breed.height.imperial} inches ({breed.height.metric} cm)
-                </p>
-              )}
-              {breed.weight && breed.weight.imperial && breed.weight.metric && (
-                <p className="mb-2">
-                  <strong>Weight:</strong> {breed.weight.imperial} pounds ({breed.weight.metric} kg)
-                </p>
-              )}
-              {breed.temperament && (
-                <p className="mb-2">
-                  <strong>Temperament:</strong> {breed.temperament}
-                </p>
-              )}
-              {breed.life_span && (
-                <p>
-                  <strong>Life Span:</strong> {breed.life_span}
-                </p>
-              )}
-            </div>
-          }
-        </li>
-      ))}
-    </ul>
+  return (
+    <div className="bg-white rounded-lg shadow-md p-4 text-neutral">
+      <h3 className="text-xl font-bold mb-2 flex justify-center">{name}</h3>
+      <img
+        src={`https://cdn2.thedogapi.com/images/${reference_image_id}.jpg`}
+        alt={reference_image_id}
+        className="w-full h-40 object-contain mb-4 rounded-md"
+      />
+
+      <div className="text-center">
+        {breed_group && (
+          <p className="mb-2">
+            <strong>Breed Group:</strong> {breed_group}
+          </p>
+        )}
+        {bred_for && (
+          <p className="mb-2">
+            <strong>Bred For:</strong> {bred_for}
+          </p>
+        )}
+        {height && height.imperial && height.metric && (
+          <p className="mb-2">
+            <strong>Height:</strong> {height.imperial} inches ({height.metric} cm)
+          </p>
+        )}
+        {weight && weight.imperial && weight.metric && (
+          <p className="mb-2">
+            <strong>Weight:</strong> {weight.imperial} pounds ({weight.metric} kg)
+          </p>
+        )}
+        {temperament && (
+          <p className="mb-2">
+            <strong>Temperament:</strong> {temperament}
+          </p>
+        )}
+        {life_span && (
+          <p className="mb-2">
+            <strong>Life Span:</strong> {life_span}
+          </p>
+        )}
+        {origin && (
+          <p className="mb-2">
+            <strong>Origin:</strong> {origin}
+          </p>
+        )}
+      </div>
+    </div>
   );
 };

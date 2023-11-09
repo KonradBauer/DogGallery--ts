@@ -6,18 +6,6 @@ interface Breed {
   id: string;
   url: string;
   name: string;
-  breed_group: string;
-  bred_for: string;
-  height: {
-    imperial: string;
-    metric: string;
-  };
-  weight: {
-    imperial: string;
-    metric: string;
-  };
-  temperament: string;
-  life_span: string;
   reference_image_id: string;
   image: {
     id: string;
@@ -55,7 +43,7 @@ export const GetBreeds: React.FC = () => {
     <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {data.map((breed) => (
         <a
-          href="/"
+          href="/dogDetails"
           key={breed.reference_image_id}
           className="bg-white rounded-lg shadow-md p-4 text-neutral"
         >
@@ -65,39 +53,6 @@ export const GetBreeds: React.FC = () => {
             alt={breed.image.id}
             className="w-full h-40 object-contain mb-4 rounded-md"
           />
-
-          {/* <div className="text-center">
-            {breed.breed_group && (
-              <p className="mb-2">
-                <strong>Breed Group:</strong> {breed.breed_group}
-              </p>
-            )}
-            {breed.bred_for && (
-              <p className="mb-2">
-                <strong>Bred For:</strong> {breed.bred_for}
-              </p>
-            )}
-            {breed.height && breed.height.imperial && breed.height.metric && (
-              <p className="mb-2">
-                <strong>Height:</strong> {breed.height.imperial} inches ({breed.height.metric} cm)
-              </p>
-            )}
-            {breed.weight && breed.weight.imperial && breed.weight.metric && (
-              <p className="mb-2">
-                <strong>Weight:</strong> {breed.weight.imperial} pounds ({breed.weight.metric} kg)
-              </p>
-            )}
-            {breed.temperament && (
-              <p className="mb-2">
-                <strong>Temperament:</strong> {breed.temperament}
-              </p>
-            )}
-            {breed.life_span && (
-              <p>
-                <strong>Life Span:</strong> {breed.life_span}
-              </p>
-            )}
-          </div> */}
         </a>
       ))}
     </ul>
