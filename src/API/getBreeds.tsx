@@ -54,7 +54,8 @@ export const GetBreeds: React.FC = () => {
   return (
     <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {data.map((breed) => (
-        <li
+        <a
+          href="/"
           key={breed.reference_image_id}
           className="bg-white rounded-lg shadow-md p-4 text-neutral"
         >
@@ -65,7 +66,7 @@ export const GetBreeds: React.FC = () => {
             className="w-full h-40 object-contain mb-4 rounded-md"
           />
 
-          <div className="text-center">
+          {/* <div className="text-center">
             {breed.breed_group && (
               <p className="mb-2">
                 <strong>Breed Group:</strong> {breed.breed_group}
@@ -96,8 +97,8 @@ export const GetBreeds: React.FC = () => {
                 <strong>Life Span:</strong> {breed.life_span}
               </p>
             )}
-          </div>
-        </li>
+          </div> */}
+        </a>
       ))}
     </ul>
   );
