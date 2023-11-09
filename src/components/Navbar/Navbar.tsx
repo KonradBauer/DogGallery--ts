@@ -1,13 +1,14 @@
 import React from "react";
 import logo from "../../images/logo.png";
+import { Link } from "react-router-dom";
 
 export const Navbar: React.FC = () => {
   return (
     <div className="navbar bg-base-100">
       <div className="flex-1">
-        <a href="/" className="btn btn-ghost normal-case text-xl">
+        <Link to="/" className="btn btn-ghost normal-case text-xl">
           Dogs Gallery
-        </a>
+        </Link>
       </div>
       <div className="flex-none gap-2">
         <div className="form-control">
