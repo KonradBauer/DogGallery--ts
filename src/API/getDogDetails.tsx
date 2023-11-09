@@ -2,7 +2,7 @@ import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { DogData } from "./endpoints";
 
-interface Breed {
+interface DogDetails {
   weight: {
     imperial: string;
     metric: string;
@@ -22,7 +22,7 @@ interface Breed {
 }
 
 export const GetDogDetails: React.FC = () => {
-  const { isLoading, error, data } = useQuery<Breed>({
+  const { isLoading, error, data } = useQuery<DogDetails>({
     queryKey: ["dog"],
     queryFn: () => {
       return DogData();
