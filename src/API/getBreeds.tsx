@@ -6,7 +6,6 @@ interface Breed {
   id: string;
   url: string;
   name: string;
-  reference_image_id: string;
   image: {
     id: string;
     width: number;
@@ -44,7 +43,7 @@ export const GetBreeds: React.FC = () => {
       {data.map((breed) => (
         <a
           href="/dogDetails"
-          key={breed.reference_image_id}
+          key={breed.id}
           className="bg-white rounded-lg shadow-md p-4 text-neutral"
         >
           <h3 className="text-xl font-bold mb-2 flex justify-center">{breed.name}</h3>
