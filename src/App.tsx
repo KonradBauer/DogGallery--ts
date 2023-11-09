@@ -1,22 +1,11 @@
-import React from "react";
-
-import { Navbar } from "./components/Navbar/Navbar";
-import { Footer } from "./components/Footer/Footer";
-//import { GetRandomPhotos } from "./API/getRandomPhotos";
-import { GetBreeds } from "./API/getBreeds";
-import { Pagination } from "./components/Pagination/Pagination";
-import { MainContainer } from "./components/MainContainer/MainContainer";
+import { Homepage } from "./components/Homepage/homepage";
+import { DogDetails } from "./components/DogDetails/DogDetails";
 
 const App: React.FC = () => {
   return (
-    <>
-      <Navbar />
-      <MainContainer>
-        <GetBreeds />
-      </MainContainer>
-      <Pagination />
-      <Footer />
-    </>
+    <div>
+      <Homepage />
+    </div>
   );
 };
 
