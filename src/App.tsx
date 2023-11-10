@@ -7,7 +7,7 @@ const App: React.FC = () => {
   return (
     <HashRouter>
       <Switch>
-        <Route path="/dog-details">
+        <Route path="/dog-details/:id">
           <DogDetails />
         </Route>
         <Route path="/">

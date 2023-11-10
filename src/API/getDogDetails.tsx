@@ -1,6 +1,7 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { DogData } from "./endpoints";
+import { useParams } from "react-router-dom";
 
 interface DogDetails {
   weight: {
@@ -22,11 +23,11 @@ interface DogDetails {
 }
 
 export const GetDogDetails: React.FC = () => {
+  const { id } = useParams<{ id: string }>();
+
   const { isLoading, error, data } = useQuery<DogDetails>({
-    queryKey: ["dog"],
-    queryFn: () => {
-      return DogData();
-    },
+    queryKey: ["dog", id],
+    queryFn: () => DogData(id),
   });
 
   if (isLoading) {

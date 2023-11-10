@@ -24,14 +24,12 @@ export const BreedsData = async () => {
   }
 };
 
-export const DogData = async () => {
+export const DogData = async (id: string) => {
   try {
-    const response = await axios.get(`https://api.thedogapi.com/v1/breeds/${""}`, {
-      headers,
-    });
+    const response = await axios.get(`https://api.thedogapi.com/v1/breeds/${id}`);
     return response.data;
   } catch (error) {
-    throw new Error("Nie udało się pobrać danych.");
+    throw new Error(`Nie udało się pobrać danych psa o ID ${id}: ${error}`);
   }
 };
 
