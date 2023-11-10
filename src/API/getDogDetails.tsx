@@ -60,7 +60,7 @@ export const GetDogDetails: React.FC = () => {
 
   return (
     <div className="bg-white rounded-lg shadow-md p-4 text-neutral">
-      <h3 className="text-xl font-bold mb-2 flex justify-center">{name}</h3>
+      <h1 className="text-xl font-bold mb-2 flex justify-center">{name}</h1>
       <img
         src={`https://cdn2.thedogapi.com/images/${reference_image_id}.jpg`}
         alt={reference_image_id}

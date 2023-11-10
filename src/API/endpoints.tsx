@@ -6,7 +6,7 @@ const headers = {
 
 export const fetchData = async () => {
   try {
-    const response = await axios.get("https://api.thedogapi.com/v1/images/search?limit=12", {
+    const response = await axios.get("https://api.thedogapi.com/v1/images/search?limit=13", {
       headers,
     });
     return response.data;
@@ -17,7 +17,7 @@ export const fetchData = async () => {
 
 export const BreedsData = async () => {
   try {
-    const response = await axios.get(`https://api.thedogapi.com/v1/breeds`, { headers });
+    const response = await axios.get(`https://api.thedogapi.com/v1/breeds?limit=21`, { headers });
     return response.data;
   } catch (error) {
     throw new Error("Nie udało się pobrać danych.");
@@ -26,7 +26,7 @@ export const BreedsData = async () => {
 
 export const DogData = async (id: string) => {
   try {
-    const response = await axios.get(`https://api.thedogapi.com/v1/breeds/${id}`);
+    const response = await axios.get(`https://api.thedogapi.com/v1/breeds/${id}`, { headers });
     return response.data;
   } catch (error) {
     throw new Error(`Nie udało się pobrać danych psa o ID ${id}: ${error}`);
