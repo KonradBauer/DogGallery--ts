@@ -5,7 +5,9 @@ export const DogDetails: React.FC = () => {
   return (
     <div>
       <GetDogDetails />
-      <Footer />
+      <div className="w-full fixed bottom-0">
+        <Footer />
+      </div>
     </div>
   );
 };
