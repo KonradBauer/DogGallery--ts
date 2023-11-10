@@ -43,7 +43,7 @@ export const GetBreeds: React.FC = () => {
     <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {data.map((breed) => (
         <Link
-          to={`/dog-details/${breed.id}`}
+          to={`/dog-details/id=${breed.id}`}
           key={breed.id}
           className="bg-white rounded-lg shadow-md p-4 text-neutral"
         >
