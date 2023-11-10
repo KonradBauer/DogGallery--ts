@@ -15,9 +15,14 @@ export const fetchData = async () => {
   }
 };
 
-export const BreedsData = async () => {
+export const BreedsData = async (page = 1, pageSize = 21) => {
   try {
-    const response = await axios.get(`https://api.thedogapi.com/v1/breeds?limit=21`, { headers });
+    const response = await axios.get(
+      `https://api.thedogapi.com/v1/breeds?limit=${pageSize}&${page}`,
+      {
+        headers,
+      }
+    );
     return response.data;
   } catch (error) {
     throw new Error("Nie udało się pobrać danych.");
