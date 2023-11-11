@@ -45,7 +45,7 @@ export const GetBreeds: React.FC = () => {
         <Link
           to={`/dog-details/${breed.id}`}
           key={breed.id}
-          className="bg-white rounded-lg shadow-md p-4 text-neutral hover:-translate-y-0.5 transition 0.2s sm:translate-none transition-none"
+          className="bg-white rounded-lg shadow-md p-4 text-neutral hover:-translate-y-0.5 transition 0.2s sm:hover-none"
         >
           <h3 className="text-xl font-bold mb-2 flex justify-center">{breed.name}</h3>
           <img
