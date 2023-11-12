@@ -2,6 +2,8 @@ import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { breedsData } from "./endpoints";
 import { Link } from "react-router-dom";
+import { Error } from "../components/Error/Error";
+import { Pagination } from "../components/Pagination/Pagination";
 
 interface Breed {
   id: string;
@@ -32,7 +34,11 @@ export const GetBreeds: React.FC = () => {
   }
 
   if (error) {
-    return <div>Błąd: {error.message}</div>;
+    return (
+      <div>
+        <Error errorMessage={error.message} />
+      </div>
+    );
   }
 
   if (data === undefined) {
@@ -40,21 +46,26 @@ export const GetBreeds: React.FC = () => {
   }
 
   return (
-    <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {data.map((breed) => (
-        <Link
-          to={`/dog-details/${breed.id}`}
-          key={breed.id}
-          className="bg-white rounded-lg shadow-md p-4 text-neutral hover:-translate-y-0.5 transition 0.2s sm:hover-none"
-        >
-          <h3 className="text-xl font-bold mb-2 flex justify-center">{breed.name}</h3>
-          <img
-            src={breed.image.url}
-            alt={breed.image.id}
-            className="w-full h-40 object-contain mb-4 rounded-md"
-          />
-        </Link>
-      ))}
-    </ul>
+    <div className="flex flex-col items-center">
+      <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {data.map((breed) => (
+          <Link
+            to={`/dog-details/${breed.id}`}
+            key={breed.id}
+            className="bg-white rounded-lg shadow-md p-4 text-neutral hover:-translate-y-0.5 transition 0.2s sm:hover-none"
+          >
+            <h3 className="text-xl font-bold mb-2 flex justify-center">{breed.name}</h3>
+            <img
+              src={breed.image.url}
+              alt={breed.image.id}
+              className="w-full h-40 object-contain mb-4 rounded-md"
+            />
+          </Link>
+        ))}
+      </ul>
+      <div className="mt-4">
+        <Pagination />
+      </div>
+    </div>
   );
 };
