@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
-import { BreedsData } from "./endpoints";
+import { breedsData } from "./endpoints";
 import { Link } from "react-router-dom";
 
 interface Breed {
@@ -19,7 +19,7 @@ export const GetBreeds: React.FC = () => {
   const { isLoading, error, data } = useQuery<Breed[]>({
     queryKey: ["breeds"],
     queryFn: () => {
-      return BreedsData();
+      return breedsData();
     },
   });
 

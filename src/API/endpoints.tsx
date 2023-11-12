@@ -15,7 +15,7 @@ export const fetchData = async () => {
   }
 };
 
-export const BreedsData = async (page = 1, pageSize = 21) => {
+export const breedsData = async (page = 1, pageSize = 21) => {
   try {
     const response = await axios.get(
       `https://api.thedogapi.com/v1/breeds?limit=${pageSize}&${page}`,
@@ -29,23 +29,11 @@ export const BreedsData = async (page = 1, pageSize = 21) => {
   }
 };
 
-export const DogData = async (id: string) => {
+export const dogData = async (id: string) => {
   try {
     const response = await axios.get(`https://api.thedogapi.com/v1/breeds/${id}`, { headers });
     return response.data;
   } catch (error) {
     throw new Error(`Nie udało się pobrać danych psa o ID ${id}: ${error}`);
-  }
-};
-
-export const SearchData = async (breedId: string) => {
-  try {
-    const response = await axios.get(
-      `https://api.thedogapi.com/v1/images/search?breed_ids=${breedId}`,
-      { headers }
-    );
-    return response.data;
-  } catch (error) {
-    throw new Error("Nie udało się pobrać danych.");
   }
 };
