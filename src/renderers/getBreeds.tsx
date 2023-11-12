@@ -23,8 +23,6 @@ export const GetBreeds: React.FC = () => {
 
   const query = new URLSearchParams(location.search).get("search");
 
-  console.log(location.search);
-
   const { isLoading, error, data } = useQuery<Breed[]>({
     queryKey: ["breeds"],
     queryFn: () => {
