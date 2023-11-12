@@ -29,7 +29,7 @@ export const breedsData = async (page = 1, pageSize = 21) => {
   }
 };
 
-export const SearchBreedsData = async () => {
+export const searchBreedsData = async () => {
   try {
     const response = await axios.get(`https://api.thedogapi.com/v1/breeds`, {
       headers,

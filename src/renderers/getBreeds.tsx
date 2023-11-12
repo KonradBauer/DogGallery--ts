@@ -1,7 +1,7 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useLocation } from "react-router-dom";
-import { SearchBreedsData, breedsData } from "../API/endpoints";
+import { searchBreedsData, breedsData } from "../API/endpoints";
 import { Link } from "react-router-dom";
 import { Error } from "../components/Error/Error";
 import { Pagination } from "../components/Pagination/Pagination";
@@ -21,8 +21,7 @@ interface Breed {
 export const GetBreeds: React.FC = () => {
   const location = useLocation();
 
-  const searchParams = new URLSearchParams(location.search);
-  const query = searchParams.get("search");
+  const query = new URLSearchParams(location.search).get("search");
 
   console.log(location.search);
 
@@ -33,10 +32,8 @@ export const GetBreeds: React.FC = () => {
         return breedsData();
       }
 
-      return SearchBreedsData().then((breeds: Breed[]) =>
-        breeds.filter((breed: Breed) =>
-          breed.name.toLowerCase().includes(query.toLowerCase().trim())
-        )
+      return searchBreedsData().then((breeds: Breed[]) =>
+        breeds.filter((breed: Breed) => breed.name.toLowerCase().includes(query.toLowerCase()))
       );
     },
   });
