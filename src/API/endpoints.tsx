@@ -11,7 +11,7 @@ export const fetchData = async () => {
     });
     return response.data;
   } catch (error) {
-    throw new Error("Nie udało się pobrać danych.");
+    throw new Error("Failed to download data. Check your internet connection..");
   }
 };
 
@@ -25,7 +25,7 @@ export const breedsData = async (page = 1, pageSize = 21) => {
     );
     return response.data;
   } catch (error) {
-    throw new Error("Nie udało się pobrać danych.");
+    throw new Error("Failed to download data. Check your internet connection..");
   }
 };
 
@@ -34,6 +34,6 @@ export const dogData = async (id: string) => {
     const response = await axios.get(`https://api.thedogapi.com/v1/breeds/${id}`, { headers });
     return response.data;
   } catch (error) {
-    throw new Error(`Nie udało się pobrać danych psa o ID ${id}: ${error}`);
+    throw new Error(`Failed to retrieve dog ID data ${id}: ${error}`);
   }
 };
