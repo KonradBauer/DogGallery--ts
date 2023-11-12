@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
-import { breedsData } from "./endpoints";
+import { breedsData } from "../API/endpoints";
 import { Link } from "react-router-dom";
 import { Error } from "../components/Error/Error";
 import { Pagination } from "../components/Pagination/Pagination";

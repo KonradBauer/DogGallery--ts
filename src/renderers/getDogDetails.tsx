@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
-import { dogData } from "./endpoints";
+import { dogData } from "../API/endpoints";
 import { useParams } from "react-router-dom";
 
 interface DogDetails {

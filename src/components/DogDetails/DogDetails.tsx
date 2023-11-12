@@ -1,4 +1,4 @@
-import { GetDogDetails } from "../../API/getDogDetails";
+import { GetDogDetails } from "../../renderers/getDogDetails";
 import { Footer } from "../Footer/Footer";
 
 export const DogDetails: React.FC = () => {

@@ -2,7 +2,7 @@ import React from "react";
 
 import { Navbar } from "../Navbar/Navbar";
 import { Footer } from "../Footer/Footer";
-import { GetBreeds } from "../../API/getBreeds";
+import { GetBreeds } from "../../renderers/getBreeds";
 import { MainContainer } from "../MainContainer/MainContainer";
 
 export const Homepage: React.FC = () => {
