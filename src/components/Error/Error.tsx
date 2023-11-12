@@ -7,7 +7,7 @@ interface ErrorProps {
 export const Error: React.FC<ErrorProps> = ({ errorMessage }) => {
   return (
     <>
-      <div className="text-white mx-auto max-w-lg">
+      <div className="text-white mx-auto max-w-lg py-7">
         <div className="alert alert-error">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -24,10 +24,10 @@ export const Error: React.FC<ErrorProps> = ({ errorMessage }) => {
           </svg>
           <span>Error! {errorMessage}</span>
         </div>
-        <div className="text-white mx-auto max-w-lg">
+        <div>
           <img
             src={errorImg}
-            alt="Obrazek błędu"
+            alt="error img"
             className="max-w-lg h-auto object-contain mg-auto py-10"
           />
         </div>
