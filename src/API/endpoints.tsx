@@ -29,6 +29,17 @@ export const breedsData = async (page = 1, pageSize = 21) => {
   }
 };
 
+export const SearchBreedsData = async () => {
+  try {
+    const response = await axios.get(`https://api.thedogapi.com/v1/breeds`, {
+      headers,
+    });
+    return response.data;
+  } catch (error) {
+    throw new Error("Failed to download data. Check your internet connection..");
+  }
+};
+
 export const dogData = async (id: string) => {
   try {
     const response = await axios.get(`https://api.thedogapi.com/v1/breeds/${id}`, { headers });
