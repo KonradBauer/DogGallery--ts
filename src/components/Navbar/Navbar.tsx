@@ -25,9 +25,7 @@ export const Navbar: React.FC = () => {
           <li>
             <span className="justify-between"></span>
           </li>
-          <li>
-            <a>Hound</a>
-          </li>
+          <li>{/* <a>Hound</a> */}</li>
         </ul>
       </div>
     </div>

@@ -1,4 +1,3 @@
-import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useLocation } from "react-router-dom";
 import { searchBreedsData, breedsData } from "../API/endpoints";
