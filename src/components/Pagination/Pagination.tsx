@@ -1,14 +1,14 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 export const Pagination = () => {
   const [page, setPage] = useState(1);
 
   const handleNextPage = () => {
-    setPage((prevPage) => prevPage + 1);
+    setPage((page) => page + 1);
   };
 
   const handlePrevPage = () => {
-    setPage((prevPage) => Math.max(prevPage - 1, 1));
+    setPage((page) => Math.max(page - 1, 1));
   };
 
   return (

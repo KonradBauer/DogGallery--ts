@@ -65,10 +65,10 @@ export const GetBreeds: React.FC = () => {
   return (
     <div className="flex flex-col items-center">
       <ul
-        className={`grid ${
-          data.length === 1
-            ? "place-items-center"
-            : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        className={`${
+          data.length === 1 || data.length === 2
+            ? "flex flex-row justify-between items-center gap-6"
+            : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
         }`}
       >
         {data.map((breed) => (

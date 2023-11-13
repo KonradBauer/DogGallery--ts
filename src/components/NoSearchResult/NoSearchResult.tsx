@@ -4,7 +4,7 @@ export const NoSearchResult = () => {
   return (
     <>
       <div className="flex-row justify-center align-middle">
-        <div className="text-white text-xl text-center">BRAK WYNIKÓW WYSZUKIWANIA</div>
+        <div className="text-white text-xl text-center">No search results</div>
         <img src={noResult} alt="no result" />
       </div>
     </>
