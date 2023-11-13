@@ -28,7 +28,7 @@ export const Error: React.FC<ErrorProps> = ({ errorMessage }) => {
           <img
             src={errorImg}
             alt="error img"
-            className="max-w-lg h-auto object-contain mg-auto py-10"
+            className="max-w-full h-auto object-contain mx-auto py-10"
           />
         </div>
       </div>
