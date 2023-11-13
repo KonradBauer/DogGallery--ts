@@ -1,4 +1,4 @@
-import errorImg from "../../images/error.jpg";
+import errorImg from "../../images/error.png";
 
 interface ErrorProps {
   errorMessage: string;
