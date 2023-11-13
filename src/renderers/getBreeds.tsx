@@ -4,6 +4,7 @@ import { searchBreedsData, breedsData } from "../API/endpoints";
 import { Link } from "react-router-dom";
 import { Error } from "../components/Error/Error";
 import { Pagination } from "../components/Pagination/Pagination";
+import { NoSearchResult } from "../components/NoSearchResult/NoSearchResult";
 
 interface Breed {
   id: string;
@@ -57,9 +58,19 @@ export const GetBreeds: React.FC = () => {
     return null;
   }
 
+  if (data.length === 0) {
+    return <NoSearchResult />;
+  }
+
   return (
     <div className="flex flex-col items-center">
-      <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <ul
+        className={`grid ${
+          data.length === 1
+            ? "place-items-center"
+            : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        }`}
+      >
         {data.map((breed) => (
           <Link
             to={`/dog-details/${breed.id}`}
