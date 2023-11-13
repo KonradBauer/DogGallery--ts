@@ -1,28 +1,34 @@
 import { useHistory, useLocation } from "react-router-dom";
-import { ChangeEvent } from "react";
+import { ChangeEvent, useState } from "react";
 
 export const Search: React.FC = () => {
   const location = useLocation();
   const history = useHistory();
   const query = new URLSearchParams(location.search).get("search");
 
+  const [searchValue, setSearchValue] = useState(query || "");
+
   const onInputChange = ({ target }: ChangeEvent<HTMLInputElement>) => {
-    const searchParams = new URLSearchParams(location.search);
+    setSearchValue(target.value);
 
-    if (target.value.trim() === "") {
-      searchParams.delete("search");
-    } else {
-      searchParams.set("search", target.value);
-    }
+    setTimeout(() => {
+      const searchParams = new URLSearchParams(location.search);
 
-    history.push(`${location.pathname}?${searchParams.toString()}`);
+      if (target.value.trim() === "") {
+        searchParams.delete("search");
+      } else {
+        searchParams.set("search", target.value);
+      }
+
+      history.push(`${location.pathname}?${searchParams.toString()}`);
+    }, 1000);
   };
 
   return (
     <div className="flex-none gap-2">
       <div className="form-control">
         <input
-          value={query || ""}
+          value={searchValue}
           onChange={onInputChange}
           type="text"
           placeholder="Search"

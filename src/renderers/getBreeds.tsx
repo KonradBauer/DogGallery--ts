@@ -23,14 +23,16 @@ export const GetBreeds: React.FC = () => {
   const query = new URLSearchParams(location.search).get("search");
 
   const { isLoading, error, data } = useQuery<Breed[]>({
-    queryKey: ["breeds"],
-    queryFn: () => {
+    queryKey: ["breeds", { query }],
+    queryFn: async () => {
       if (!query || query.trim() === "") {
         return breedsData();
       }
 
-      return searchBreedsData().then((breeds: Breed[]) =>
-        breeds.filter((breed: Breed) => breed.name.toLowerCase().includes(query.toLowerCase()))
+      const breeds = await searchBreedsData();
+
+      return breeds.filter((breed: Breed) =>
+        breed.name.toLowerCase().includes(query.toLowerCase())
       );
     },
   });
