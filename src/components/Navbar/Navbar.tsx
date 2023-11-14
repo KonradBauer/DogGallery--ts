@@ -8,7 +8,7 @@ export const Navbar: React.FC = () => {
     <div className="navbar bg-base-100">
       <div className="flex-1">
         <Link to="/" className="btn btn-ghost normal-case text-xl">
-          Dogs Gallery
+          Dog Gallery
         </Link>
       </div>
       <Search />
