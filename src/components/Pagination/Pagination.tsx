@@ -8,16 +8,16 @@ export const Pagination = () => {
   const handleNextPage = () => {
     const nextPage = page + 1;
     setPage(nextPage);
-    urlPage(nextPage);
+    pageUrl(nextPage);
   };
 
   const handlePrevPage = () => {
     const prevPage = page - 1;
     setPage(prevPage);
-    urlPage(prevPage);
+    pageUrl(prevPage);
   };
 
-  const urlPage = (pageNumber: number) => {
+  const pageUrl = (pageNumber: number) => {
     history.push(`?page=${pageNumber}`);
   };
 
