@@ -1,14 +1,25 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 export const Pagination = () => {
+  const history = useHistory();
   const [page, setPage] = useState(1);
 
   const handleNextPage = () => {
-    setPage((page) => page + 1);
+    const nextPage = page + 1;
+    setPage(nextPage);
+    urlPage(nextPage);
   };
 
   const handlePrevPage = () => {
-    setPage((page) => Math.max(page - 1, 1));
+    const prevPage = Math.max(page - 1, 1);
+    setPage(prevPage);
+    urlPage(prevPage);
+  };
+
+  const urlPage = (pageNumber: number) => {
+    // Użyj history.push, aby dodać aktualną stronę do URL-a
+    history.push(`?page=${pageNumber}`);
   };
 
   return (
