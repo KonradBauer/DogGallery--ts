@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 export const Pagination = () => {
-  const history = useHistory();
   const [page, setPage] = useState(1);
+  const history = useHistory();
 
   const handleNextPage = () => {
     const nextPage = page + 1;
@@ -12,13 +12,12 @@ export const Pagination = () => {
   };
 
   const handlePrevPage = () => {
-    const prevPage = Math.max(page - 1, 1);
+    const prevPage = page - 1;
     setPage(prevPage);
     urlPage(prevPage);
   };
 
   const urlPage = (pageNumber: number) => {
-    // Użyj history.push, aby dodać aktualną stronę do URL-a
     history.push(`?page=${pageNumber}`);
   };
 
