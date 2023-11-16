@@ -1,9 +1,16 @@
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useHistory, useParams } from "react-router-dom";
 
 export const Pagination = () => {
   const [page, setPage] = useState(1);
   const history = useHistory();
+  const { page: pageParam } = useParams<{ page: string }>();
+
+  useEffect(() => {
+    if (pageParam) {
+      setPage(parseInt(pageParam, 10));
+    }
+  }, [pageParam]);
 
   const handleNextPage = () => {
     const nextPage = page + 1;
