@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { useLocation, useParams, useHistory } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { searchBreedsData, breedsData } from "../API/endpoints";
 import { Link } from "react-router-dom";
 import { Error } from "../components/Error/Error";
@@ -21,13 +20,11 @@ interface Breed {
 
 export const GetBreeds: React.FC = () => {
   const location = useLocation();
-  const history = useHistory();
 
   const query = new URLSearchParams(location.search).get("search");
-  const { page: pageParam } = useParams<{ page: string }>();
 
-  const { isLoading, error, data, refetch } = useQuery<Breed[]>({
-    queryKey: ["breeds", { query, page: pageParam }],
+  const { isLoading, error, data } = useQuery<Breed[]>({
+    queryKey: ["breeds", { query }],
     queryFn: async () => {
       if (!query || query.trim() === "") {
         return breedsData();
@@ -40,12 +37,6 @@ export const GetBreeds: React.FC = () => {
       );
     },
   });
-
-  useEffect(() => {
-    history.push(`?page=${pageParam}`);
-
-    refetch();
-  }, [pageParam, history, refetch]);
 
   if (isLoading) {
     return (
@@ -95,9 +86,8 @@ export const GetBreeds: React.FC = () => {
           </Link>
         ))}
       </ul>
-      <div className="mt-4">
-        <Pagination />
-      </div>
+      <Pagination />
+      <div className="mt-4"></div>
     </div>
   );
 };
