@@ -15,11 +15,14 @@ export const fetchData = async () => {
   }
 };
 
-export const breedsData = async () => {
+export const breedsData = async (pageNumber: number, pageSize: number) => {
   try {
-    const response = await axios.get(`https://api.thedogapi.com/v1/breeds`, {
-      headers,
-    });
+    const response = await axios.get(
+      `https://api.thedogapi.com/v1/breeds?page=${pageNumber}&limit=${pageSize}`,
+      {
+        headers,
+      }
+    );
     return response.data;
   } catch (error) {
     throw new Error("Failed to download data. Check your internet connection..");
