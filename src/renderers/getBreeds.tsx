@@ -42,6 +42,12 @@ export const GetBreeds: React.FC = () => {
     },
   });
 
+  const handlePageChange = (pageNumber: number) => {
+    const queryParams = new URLSearchParams(location.search);
+    queryParams.set("page", pageNumber.toString());
+    history.push({ search: queryParams.toString() });
+  };
+
   if (isLoading) {
     return (
       <div className="flex justify-center items-center h-screen">
@@ -65,12 +71,6 @@ export const GetBreeds: React.FC = () => {
   if (data.length === 0) {
     return <NoSearchResult />;
   }
-
-  const handlePageChange = (pageNumber: number) => {
-    const queryParams = new URLSearchParams(location.search);
-    queryParams.set("page", pageNumber.toString());
-    history.push({ search: queryParams.toString() });
-  };
 
   return (
     <div className="flex flex-col items-center">
