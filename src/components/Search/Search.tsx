@@ -21,7 +21,7 @@ export const Search: React.FC = () => {
       }
 
       history.push(`${location.pathname}?${searchParams.toString()}`);
-    }, 1000);
+    }, 500);
   };
 
   return (
