@@ -28,7 +28,7 @@ export const GetBreeds: React.FC = () => {
   const query = new URLSearchParams(location.search).get("search");
 
   const { isLoading, error, data } = useQuery<Breed[]>({
-    queryKey: ["breeds", { query, page: defaultPageNumber }],
+    queryKey: ["breeds", { query, page: defaultPageNumber }, { keepPreviousData: true }],
     queryFn: async () => {
       if (!query || query.trim() === "") {
         return breedsData(parseInt(defaultPageNumber || "1"), defaultPageSize);
