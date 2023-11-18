@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { useLocation } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import { searchBreedsData, breedsData } from "../API/endpoints";
 import { Link } from "react-router-dom";
 import { Error } from "../components/Error/Error";
@@ -19,15 +19,19 @@ interface Breed {
 }
 
 export const GetBreeds: React.FC = () => {
+  const history = useHistory();
+
   const location = useLocation();
 
+  const defaultPageSize = 15;
+  const defaultPageNumber = new URLSearchParams(location.search).get("page");
   const query = new URLSearchParams(location.search).get("search");
 
   const { isLoading, error, data } = useQuery<Breed[]>({
-    queryKey: ["breeds", { query }],
+    queryKey: ["breeds", { query, page: defaultPageNumber }],
     queryFn: async () => {
       if (!query || query.trim() === "") {
-        return breedsData();
+        return breedsData(parseInt(defaultPageNumber || "1"), defaultPageSize);
       }
 
       const breeds = await searchBreedsData();
@@ -62,6 +66,12 @@ export const GetBreeds: React.FC = () => {
     return <NoSearchResult />;
   }
 
+  const handlePageChange = (pageNumber: number) => {
+    const queryParams = new URLSearchParams(location.search);
+    queryParams.set("page", pageNumber.toString());
+    history.push({ search: queryParams.toString() });
+  };
+
   return (
     <div className="flex flex-col items-center">
       <ul
@@ -86,7 +96,7 @@ export const GetBreeds: React.FC = () => {
           </Link>
         ))}
       </ul>
-      <Pagination />
+      <Pagination onPageChange={handlePageChange} />
       <div className="mt-4"></div>
     </div>
   );
