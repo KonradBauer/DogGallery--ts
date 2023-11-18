@@ -1,9 +1,21 @@
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useHistory, useLocation } from "react-router-dom";
 
-export const Pagination = () => {
-  const [page, setPage] = useState(1);
+interface PaginationProps {
+  onPageChange: (pageNumber: number) => void;
+}
+
+export const Pagination: React.FC<PaginationProps> = ({ onPageChange }) => {
+  const location = useLocation();
+  const [page, setPage] = useState(() => {
+    const searchParams = new URLSearchParams(location.search);
+    return parseInt(searchParams.get("page") || "1", 10);
+  });
   const history = useHistory();
+
+  useEffect(() => {
+    onPageChange(page);
+  }, [page, onPageChange]);
 
   const handleNextPage = () => {
     const nextPage = page + 1;
