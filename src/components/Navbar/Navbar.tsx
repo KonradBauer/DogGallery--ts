@@ -18,15 +18,15 @@ export const Navbar: React.FC = () => {
             <img src={logo} alt="app logo" />
           </div>
         </label>
-        <ul
+        {/* <ul
           tabIndex={0}
           className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
         >
           <li>
             <span className="justify-between"></span>
           </li>
-          <li>{/* <a>Hound</a> */}</li>
-        </ul>
+          <li>{/<a>Hound</a>}</li>
+        </ul> */}
       </div>
     </div>
   );
