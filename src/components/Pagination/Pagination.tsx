@@ -17,13 +17,11 @@ export const Pagination: React.FC<PaginationProps> = ({ onPageChange }) => {
   }, [page, onPageChange]);
 
   const handleNextPage = () => {
-    const nextPage = page + 1;
-    setPage(nextPage);
+    setPage((nextPage) => nextPage + 1);
   };
 
   const handlePrevPage = () => {
-    const prevPage = page - 1;
-    setPage(prevPage);
+    setPage((prevPage) => prevPage - 1);
   };
 
   return (
