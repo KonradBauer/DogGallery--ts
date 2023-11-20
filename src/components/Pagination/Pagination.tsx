@@ -14,7 +14,7 @@ export const Pagination: React.FC<PaginationProps> = ({ onPageChange }) => {
 
   useEffect(() => {
     onPageChange(page);
-  }, [page, onPageChange]);
+  }, [page]);
 
   const handleNextPage = () => {
     setPage((nextPage) => nextPage + 1);
