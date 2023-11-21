@@ -64,12 +64,12 @@ export const GetDogDetails: React.FC = () => {
   } = data;
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-4 text-neutral">
-      <h1 className="text-xl font-bold mb-2 flex justify-center">{name}</h1>
+    <div className="bg-white shadow-md p-4 text-neutral h-screen bg-gradient-to-b from-white to-neutral-500">
+      <h1 className="text-xl font-bold mb-4 flex justify-center">{name}</h1>
       <img
         src={`https://cdn2.thedogapi.com/images/${reference_image_id}.jpg`}
         alt={reference_image_id}
-        className="w-full h-40 object-contain mb-4 rounded-md"
+        className="w-full h-60 object-contain mb-4"
       />
 
       <div className="text-center">
