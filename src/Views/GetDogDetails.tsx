@@ -2,6 +2,7 @@ import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { dogData } from "../API/endpoints";
 import { useParams } from "react-router-dom";
+import { Error } from "../components/Error/Error";
 
 interface DogDetails {
   weight: {
@@ -39,7 +40,11 @@ export const GetDogDetails: React.FC = () => {
   }
 
   if (error) {
-    return <div>Błąd: {error.message}</div>;
+    return (
+      <div>
+        <Error errorMessage={error.message} />
+      </div>
+    );
   }
 
   if (!data) {

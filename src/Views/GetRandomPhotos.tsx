@@ -1,6 +1,7 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { fetchData } from "../API/endpoints";
+import { Error } from "../components/Error/Error";
 
 // for future usage
 
@@ -39,7 +40,11 @@ export const GetRandomPhotos: React.FC = () => {
   }
 
   if (error) {
-    return <div>Błąd: {error.message}</div>;
+    return (
+      <div>
+        <Error errorMessage={error.message} />
+      </div>
+    );
   }
 
   if (data === undefined) {
