@@ -4,17 +4,6 @@ const headers = {
   "x-api-key": "live_U4QRaqcAGPAwGk1PTkUZfLarqupGb9KwZxQ3kuxZRL3lIJL8971UwLkXWFTHEdSP",
 };
 
-export const fetchData = async () => {
-  try {
-    const response = await axios.get("https://api.thedogapi.com/v1/images/search?limit=13", {
-      headers,
-    });
-    return response.data;
-  } catch (error) {
-    throw new Error("Failed to download data. Check your internet connection..");
-  }
-};
-
 export const breedsData = async (pageNumber: number, pageSize: number) => {
   try {
     const response = await axios.get(
