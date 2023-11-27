@@ -78,7 +78,7 @@ export const GetBreeds: React.FC = () => {
         className={`${
           data.length === 1 || data.length === 2
             ? "flex flex-row justify-between items-center gap-6 py-3"
-            : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-3"
+            : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 gap-6 py-3"
         }`}
       >
         {data.map((breed) => (
