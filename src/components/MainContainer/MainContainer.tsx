@@ -8,6 +8,7 @@ export const MainContainer: React.FC<MainContainerProps> = ({ children }) => {
   return (
     <div
       className="
+      min-h-screen
       py-3 
       px-3 
       flex 
