@@ -1,7 +1,11 @@
 import { useHistory, useLocation } from "react-router-dom";
 import { ChangeEvent, useState } from "react";
 
-export const Search: React.FC = () => {
+interface SearchProps {
+  resetSearchInput: () => void;
+}
+
+export const Search: React.FC<SearchProps> = ({ resetSearchInput }) => {
   const location = useLocation();
   const history = useHistory();
   const query = new URLSearchParams(location.search).get("search");
