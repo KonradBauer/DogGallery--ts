@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useMemo } from "react";
 import { useLocation } from "react-router-dom";
 
 interface PaginationProps {
@@ -7,21 +7,16 @@ interface PaginationProps {
 
 export const Pagination: React.FC<PaginationProps> = ({ onPageChange }) => {
   const location = useLocation();
-  const [page, setPage] = useState(() => {
-    const searchParams = new URLSearchParams(location.search);
-    return parseInt(searchParams.get("page") || "1", 10);
-  });
+  const searchParams = useMemo(() => new URLSearchParams(location.search), [location.search]);
 
-  useEffect(() => {
-    onPageChange(page);
-  }, [page]);
-
-  const handleNextPage = () => {
-    setPage((nextPage) => nextPage + 1);
-  };
+  const page = useMemo(() => parseInt(searchParams.get("page") || "1", 10), [searchParams]);
 
   const handlePrevPage = () => {
-    setPage((prevPage) => prevPage - 1);
+    onPageChange(page - 1);
+  };
+
+  const handleNextPage = () => {
+    onPageChange(page + 1);
   };
 
   return (
