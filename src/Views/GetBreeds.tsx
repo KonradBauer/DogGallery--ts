@@ -37,7 +37,7 @@ export const GetBreeds: React.FC = () => {
       const breeds = await searchBreedsData();
 
       return breeds.filter((breed: Breed) =>
-        breed.name.toLowerCase().includes(query.toLowerCase())
+        breed.name.toLowerCase().includes(query.toLowerCase()),
       );
     },
   });
@@ -50,8 +50,8 @@ export const GetBreeds: React.FC = () => {
 
   if (isLoading) {
     return (
-      <div className="flex justify-center items-center h-screen">
-        <div className="loader ease-linear rounded-full border-t-5 border-r-1 border-b-4 border-gray-500 h-12 w-12 animate-spin"></div>
+      <div className="flex h-screen items-center justify-center">
+        <div className="loader border-t-5 border-r-1 h-12 w-12 animate-spin rounded-full border-b-4 border-white ease-linear"></div>
       </div>
     );
   }
@@ -77,21 +77,23 @@ export const GetBreeds: React.FC = () => {
       <ul
         className={`${
           data.length === 1 || data.length === 2
-            ? "flex flex-row justify-between items-center gap-6 py-3"
-            : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 gap-6 py-3"
+            ? "flex flex-row items-center justify-between gap-6 py-3"
+            : "grid grid-cols-1 gap-6 py-3 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5"
         }`}
       >
         {data.map((breed) => (
           <Link
             to={`/dog-details/${breed.id}`}
             key={breed.id}
-            className="bg-white rounded-lg shadow-md p-4 text-neutral hover:-translate-y-0.5 transition 0.2s sm:hover-none"
+            className="0.2s sm:hover-none rounded-lg bg-white p-4 text-neutral shadow-md transition hover:-translate-y-0.5"
           >
-            <h3 className="text-xl font-bold mb-2 flex justify-center">{breed.name}</h3>
+            <h3 className="mb-2 flex justify-center text-xl font-bold">
+              {breed.name}
+            </h3>
             <img
               src={breed.image.url}
               alt={breed.image.id}
-              className="w-full h-40 object-contain mb-4 rounded-md"
+              className="mb-4 h-40 w-full object-contain"
             />
           </Link>
         ))}
