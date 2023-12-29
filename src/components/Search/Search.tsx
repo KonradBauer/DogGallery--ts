@@ -1,11 +1,7 @@
 import { useHistory, useLocation } from "react-router-dom";
 import { ChangeEvent, useState } from "react";
 
-interface SearchProps {
-  resetSearchInput: () => void;
-}
-
-export const Search: React.FC<SearchProps> = ({ resetSearchInput }) => {
+export const Search: React.FC = () => {
   const location = useLocation();
   const history = useHistory();
   const query = new URLSearchParams(location.search).get("search");
@@ -36,7 +32,7 @@ export const Search: React.FC<SearchProps> = ({ resetSearchInput }) => {
           onChange={onInputChange}
           type="text"
           placeholder="Search"
-          className="input input-bordered w-24 md:w-auto"
+          className="input input-bordered w-24 max-md:h-8 max-md:w-24 md:w-auto"
         />
       </div>
     </div>
