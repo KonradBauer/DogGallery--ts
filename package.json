@@ -1,6 +1,6 @@
 {
   "name": "doggallery-ts",
-  "version": "0.1.0",
+  "version": "0.9.0",
   "private": true,
   "homepage": "https://konradbauer.github.io/DogGallery-ts/",
   "dependencies": {
