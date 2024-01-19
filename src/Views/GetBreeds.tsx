@@ -93,7 +93,7 @@ export const GetBreeds: React.FC = () => {
             <img
               src={breed.image.url}
               alt={breed.image.id}
-              className="mb-4 h-40 w-full object-contain"
+              className="mb-4 h-40 w-full transform object-contain transition-transform hover:scale-105"
             />
           </Link>
         ))}
