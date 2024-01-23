@@ -7,11 +7,11 @@ interface ErrorProps {
 export const Error: React.FC<ErrorProps> = ({ errorMessage }) => {
   return (
     <>
-      <div className="text-white mx-auto max-w-lg py-7">
+      <div className="mx-auto max-w-lg py-7 text-white">
         <div className="alert alert-error">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="stroke-current shrink-0 h-6 w-6"
+            className="h-6 w-6 shrink-0 stroke-current"
             fill="none"
             viewBox="0 0 24 24"
           >
@@ -28,7 +28,7 @@ export const Error: React.FC<ErrorProps> = ({ errorMessage }) => {
           <img
             src={errorImg}
             alt="error img"
-            className="max-w-full h-auto object-contain mx-auto py-10"
+            className="mx-auto h-auto max-w-full object-contain py-10"
           />
         </div>
       </div>
