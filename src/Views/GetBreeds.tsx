@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Error } from "../components/Error/Error";
 import { Pagination } from "../components/Pagination/Pagination";
 import { NoSearchResult } from "../components/NoSearchResult/NoSearchResult";
+import { useEffect, useState } from "react"; // Import useEffect
 
 interface Breed {
   id: string;
@@ -20,7 +21,6 @@ interface Breed {
 
 export const GetBreeds: React.FC = () => {
   const history = useHistory();
-
   const location = useLocation();
 
   const defaultPageSize = 15;
@@ -42,13 +42,41 @@ export const GetBreeds: React.FC = () => {
     },
   });
 
+  const [areImagesLoaded, setAreImagesLoaded] = useState(false);
+
+  const loadImage = (url: string): Promise<Event> => {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.onload = resolve;
+      img.onerror = reject;
+      img.src = url;
+    });
+  };
+
+  const loadImages = async (breeds: Breed[]): Promise<void> => {
+    try {
+      const imagePromises = breeds.map((breed) => loadImage(breed.image.url));
+      await Promise.all(imagePromises);
+      setAreImagesLoaded(true);
+    } catch (error) {
+      console.error("Error loading images:", error);
+    }
+  };
+
+  useEffect(() => {
+    if (data) {
+      setAreImagesLoaded(false);
+      loadImages(data);
+    }
+  }, [data]);
+
   const handlePageChange = (pageNumber: number) => {
     const queryParams = new URLSearchParams(location.search);
     queryParams.set("page", pageNumber.toString());
     history.push({ search: queryParams.toString() });
   };
 
-  if (isLoading) {
+  if (isLoading || !areImagesLoaded) {
     return (
       <div className="flex h-screen items-center justify-center">
         <div className="loader border-t-5 border-r-1 h-12 w-12 animate-spin rounded-full border-b-4 border-white ease-linear"></div>
@@ -93,7 +121,7 @@ export const GetBreeds: React.FC = () => {
             <img
               src={breed.image.url}
               alt={breed.image.id}
-              className="mb-4 h-40 w-full transform object-contain transition-transform hover:scale-105"
+              className="mb-4 h-40 w-full transform object-contain"
             />
           </Link>
         ))}
